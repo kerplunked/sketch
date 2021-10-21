@@ -1,14 +1,29 @@
-#grid {
-    box-sizing: border-box;
+body {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 566px;
-    align-items: center;
+    align-items:center;
     justify-content: center;
-    margin: 50px;
+    box-sizing: border-box;
 }
 
-.box {
-    flex: 0 0 auto;
+
+#grid {
     
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+    border: 1px solid black;
+}
+
+.box-row {
+    display: flex;
+    flex: 1 1 0;
+    
+}
+
+.box-cell {
+
+    flex: 1 1 0;
+
 }

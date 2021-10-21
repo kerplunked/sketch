@@ -1,33 +1,45 @@
 const sketchGrid = document.querySelector("#grid");
 
-
-
-
+let gridSize = 16;
 
 
 //loop to create grid,, may needa new better way
 
-for (let i = 0; i < 256; i++) {
-    const div = document.createElement("div");
-    div.style.height = "32px";
-    div.style.width = "32px";
-    div.classList.add("box")
-    div.style.border = "1px solid #000000";
+function makeGrid(gridSize) {
+
+for (let i = 0; i < gridSize; i++) {
+    const row = document.createElement("div");
+    row.classList.add("box-row")
+
+    for (let j = 0; j < gridSize; j++)
+    {
+        const cell = document.createElement("div");
+        cell.classList.add("box-cell");
+        row.appendChild(cell);
+    }
     
-    sketchGrid.append(div);
+    sketchGrid.appendChild(row);
+}
     
+} 
+
+
+// draw on each box
+function drawBlack() {
+
+const draw = document.querySelectorAll(".box-cell");
+    
+draw.forEach((cell) => {
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "black";
+    });
+
+});
+ 
 }
 
 
-// draw on one box 
-const draw = document.querySelector(".box");
-
-draw.addEventListener("mouseover", () => {
-    
-    draw.classList.add("box-colour");
-    draw.style.backgroundColor = "black";
-
-});
-
+makeGrid(16);
+drawBlack();
 
 
