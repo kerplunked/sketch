@@ -1,0 +1,14 @@
+#grid {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 566px;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.box {
+    flex: 0 0 auto;
+    
+}
