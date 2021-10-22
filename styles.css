@@ -4,7 +4,9 @@ body {
     justify-content: center;
     box-sizing: border-box;
     flex-direction: column;
-    background-color: rgba(196, 54, 44, 0.514);
+    background-image: linear-gradient(rgb(208, 211, 210), rgb(114, 115, 119));
+    min-height: 100vh;
+    
 }
 
 
