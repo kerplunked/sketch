@@ -3,6 +3,7 @@ body {
     align-items:center;
     justify-content: center;
     box-sizing: border-box;
+    flex-direction: column;
 }
 
 
@@ -27,3 +28,4 @@ body {
     flex: 1 1 0;
 
 }
+

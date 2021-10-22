@@ -1,9 +1,13 @@
 const sketchGrid = document.querySelector("#grid");
+const reset = document.querySelector(".clearbtn");
 
-let gridSize = 16;
+gridSize = 16;
 
 
-//loop to create grid,, may needa new better way
+
+
+
+//loop to create grid
 
 function makeGrid(gridSize) {
 
@@ -39,7 +43,25 @@ draw.forEach((cell) => {
 }
 
 
-makeGrid(16);
+//clear button and restart with grid size selection <100
+
+function resetGrid() {
+
+    
+    const check = document.querySelectorAll(".box-cell");
+
+    check.forEach((cell) => {
+        reset.addEventListener("click", () => {
+            cell.style.backgroundColor = "white";
+    });
+
+});
+
+   
+}
+
+makeGrid(gridSize);
 drawBlack();
+resetGrid();
 
 
