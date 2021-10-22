@@ -4,6 +4,7 @@ body {
     justify-content: center;
     box-sizing: border-box;
     flex-direction: column;
+    background-color: rgba(196, 54, 44, 0.514);
 }
 
 
@@ -11,21 +12,31 @@ body {
     
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 500px;
-    margin: 50px;
+    width: 600px;
+    height: 600px;
+    margin: 23px;
     border: 1px solid black;
 }
 
 .box-row {
     display: flex;
-    flex: 1 1 0;
-    
+    flex: 1 1 0; 
 }
 
 .box-cell {
-
     flex: 1 1 0;
-
 }
 
+.clearbtn {
+    background-color: #ffffff; 
+    border: none;
+    color: rgb(37, 35, 48);
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 4px solid black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}

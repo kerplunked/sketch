@@ -1,9 +1,6 @@
 const sketchGrid = document.querySelector("#grid");
 const reset = document.querySelector(".clearbtn");
 
-gridSize = 16;
-
-
 
 
 
@@ -56,12 +53,24 @@ function resetGrid() {
     });
 
 });
+ 
+    reset.addEventListener("click", () => {
+        gridSize = Number(window.prompt("Enter new grid size; MAX 100"));
+        if (gridSize > 100) {
+            gridSize = 100
+        }
+        sketchGrid.textContent = "";
+        makeGrid(gridSize);
+        drawBlack();
 
+})
    
 }
 
-makeGrid(gridSize);
-drawBlack();
-resetGrid();
 
+
+makeGrid(16);
+drawBlack();
+
+resetGrid();
 
