@@ -1,7 +1,8 @@
 const sketchGrid = document.querySelector("#grid");
 const reset = document.querySelector(".clearbtn");
 
-
+const blackClr = document.querySelector(".blackbtn").addEventListener("click", drawBlack);
+const greyClr = document.querySelector(".greybtn").addEventListener("click", drawGrey);
 
 
 //loop to create grid
@@ -25,19 +26,50 @@ for (let i = 0; i < gridSize; i++) {
 } 
 
 
+
+
+
 // draw on each box
-function drawBlack() {
+function drawBlack() { 
 
 const draw = document.querySelectorAll(".box-cell");
-    
-draw.forEach((cell) => {
-        cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = "black";
-    });
 
-});
+
+
+    draw.forEach((cell) => {
+        cell.addEventListener("mouseover", () => {                
+            cell.style.backgroundColor = "black";   
+            
+            
+                       
+    });
  
-}
+});
+
+} 
+
+function colourGrey() {
+
+    let opacity = 0.1; 
+   
+    colour = `rgba(0,0,0,${opacity})`;
+    return colour;
+
+ }
+
+function drawGrey() { 
+
+    document.querySelectorAll('.box-cell').forEach(cell => {
+        cell.addEventListener('mouseenter', () => {
+          cell.style.backgroundColor = colourGrey();
+          });
+        });
+      };
+
+  
+
+    
+
 
 
 //clear button and restart with grid size selection <100
@@ -70,7 +102,7 @@ function resetGrid() {
 
 
 makeGrid(16);
-drawBlack();
+
 
 resetGrid();
 

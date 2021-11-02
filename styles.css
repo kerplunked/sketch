@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 body {
+    font-family: 'Bree Serif', serif;
     display: flex;
     align-items:center;
     justify-content: center;
@@ -17,7 +20,7 @@ body {
     width: 600px;
     height: 600px;
     margin: 23px;
-    border: 4px solid black;
+    border: 4px solid rgba(0, 0, 0, 0.637);
 }
 
 .box-row {
@@ -29,17 +32,20 @@ body {
     flex: 1 1 0;
 }
 
-.clearbtn {
+.clearbtn, .blackbtn, .greybtn {
     background-color: #ffffff; 
     border: none;
     color: rgb(37, 35, 48);
-    padding: 10px 12px;
+    padding: 6px 12px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    
     font-size: 16px;
     font-weight: bolder;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 0, 0);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
+}
+
+h2 {
+    font-weight: lighter;
 }
