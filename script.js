@@ -1,8 +1,9 @@
 const sketchGrid = document.querySelector("#grid");
 const reset = document.querySelector(".clearbtn");
+const div = document.querySelectorAll(".box-cell");
 
-const blackClr = document.querySelector(".blackbtn").addEventListener("click", drawBlack);
-const greyClr = document.querySelector(".greybtn").addEventListener("click", drawGrey);
+const blackClr = document.querySelector(".blackbtn")
+const greyClr = document.querySelector(".greybtn")
 
 
 //loop to create grid
@@ -25,52 +26,40 @@ for (let i = 0; i < gridSize; i++) {
     
 } 
 
+// create click event on button to start drawing function
+// inside click event set new colour var to that colour
 
-
-
-
-// draw on each box
-function drawBlack() { 
-
-const draw = document.querySelectorAll(".box-cell");
-
-
-
-    draw.forEach((cell) => {
-        cell.addEventListener("mouseover", () => {                
-            cell.style.backgroundColor = "black";   
-            
-            
-                       
-    });
- 
+blackClr.addEventListener("click", () =>  {
+    colourPick = "black";
+    draw();
 });
+
+greyClr.addEventListener("click", () =>  {
+    colourPick = "grey";
+    draw();
+});
+
+function draw(){
+    document.querySelectorAll('.box-cell').forEach(cell => {
+    cell.addEventListener('mouseenter', () => {
+
+        if (colourPick === "black") {
+  
+        cell.style.backgroundColor = "black"
+        }
+        else if (colourPick === "grey") {
+
+        cell.style.backgroundColor = "grey"
+        }
+    });
+});
+        
+   
 
 } 
 
-function colourGrey() {
 
-    let opacity = 0.1; 
-   
-    colour = `rgba(0,0,0,${opacity})`;
-    return colour;
-
- }
-
-function drawGrey() { 
-
-    document.querySelectorAll('.box-cell').forEach(cell => {
-        cell.addEventListener('mouseenter', () => {
-          cell.style.backgroundColor = colourGrey();
-          });
-        });
-      };
-
-  
-
-    
-
-
+ 
 
 //clear button and restart with grid size selection <100
 
@@ -93,7 +82,7 @@ function resetGrid() {
         }
         sketchGrid.textContent = "";
         makeGrid(gridSize);
-        drawBlack();
+        
 
 })
    
