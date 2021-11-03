@@ -5,6 +5,7 @@ const div = document.querySelectorAll(".box-cell");
 const blackClr = document.querySelector(".blackbtn")
 const greyClr = document.querySelector(".greybtn")
 const rainbowClr = document.querySelector(".rainbowbtn")
+const erase = document.querySelector(".erasebtn")
 
 
 //loop to create grid
@@ -47,6 +48,10 @@ rainbowClr.addEventListener("click", () =>  {
     colourPick = "rainbow";
     draw();
 });
+erase.addEventListener("click", () =>  {
+    colourPick = "erase";
+    draw();
+});
 
 
 //rianbow color gen
@@ -78,8 +83,11 @@ function draw(){
         }
         else if (colourPick === "rainbow") {
             cell.style.backgroundColor = rainbowRBG();
-
         }
+        else if (colourPick === "erase") {
+            cell.style.backgroundColor = "white";
+        }
+
     });
 });
         
