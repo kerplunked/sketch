@@ -32,7 +32,7 @@ body {
     flex: 1 1 0;
 }
 
-.clearbtn, .blackbtn, .greybtn {
+.clearbtn, .blackbtn, .greybtn, .rainbowbtn, .erasebtn {
     background-color: #ffffff; 
     border: none;
     color: rgb(37, 35, 48);

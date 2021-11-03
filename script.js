@@ -4,6 +4,7 @@ const div = document.querySelectorAll(".box-cell");
 
 const blackClr = document.querySelector(".blackbtn")
 const greyClr = document.querySelector(".greybtn")
+const rainbowClr = document.querySelector(".rainbowbtn")
 
 
 //loop to create grid
@@ -19,9 +20,11 @@ for (let i = 0; i < gridSize; i++) {
         const cell = document.createElement("div");
         cell.classList.add("box-cell");
         row.appendChild(cell);
+        cell.style.backgroundColor = 'rgba(255, 255, 255, 1)';
     }
     
     sketchGrid.appendChild(row);
+    
 }
     
 } 
@@ -29,15 +32,32 @@ for (let i = 0; i < gridSize; i++) {
 // create click event on button to start drawing function
 // inside click event set new colour var to that colour
 
+
 blackClr.addEventListener("click", () =>  {
     colourPick = "black";
     draw();
 });
 
 greyClr.addEventListener("click", () =>  {
-    colourPick = "grey";
+    colourPick = "white";
     draw();
 });
+
+rainbowClr.addEventListener("click", () =>  {
+    colourPick = "rainbow";
+    draw();
+});
+
+
+//rianbow color gen
+function rainbowRBG() {
+    rainbowColour='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round  (Math.random()*255)+')';
+    return rainbowColour;
+}    
+
+
+
+
 
 function draw(){
     document.querySelectorAll('.box-cell').forEach(cell => {
@@ -47,9 +67,18 @@ function draw(){
   
         cell.style.backgroundColor = "black"
         }
-        else if (colourPick === "grey") {
+        else if (colourPick === "white") {
+            let cellBg = window.getComputedStyle(cell).backgroundColor;
+            const [r,g,b] = cellBg.slice(4, cellBg.length - 1).split(',');
+            rX = (r * 0.9).toFixed(1);
+            gX = (g * 0.9).toFixed(1);
+            bX = (b * 0.9).toFixed(1);
+                greyShade = `rgba(${rX},${gX},${bX},1)`; 
+                cell.style.backgroundColor = greyShade;          
+        }
+        else if (colourPick === "rainbow") {
+            cell.style.backgroundColor = rainbowRBG();
 
-        cell.style.backgroundColor = "grey"
         }
     });
 });
