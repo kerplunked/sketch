@@ -6,6 +6,7 @@ const blackClr = document.querySelector(".blackbtn")
 const greyClr = document.querySelector(".greybtn")
 const rainbowClr = document.querySelector(".rainbowbtn")
 const erase = document.querySelector(".erasebtn")
+const gridSq = document.querySelector(".gridbtn")
 
 
 //loop to create grid
@@ -22,17 +23,22 @@ for (let i = 0; i < gridSize; i++) {
         cell.classList.add("box-cell");
         row.appendChild(cell);
         cell.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+        
     }
     
-    sketchGrid.appendChild(row);
-    
-}
-    
+    sketchGrid.appendChild(row);    
+}   
 } 
+
+
+
+
 
 // create click event on button to start drawing function
 // inside click event set new colour var to that colour
-
+gridSq.addEventListener("click", () =>  {
+    gridToggle();
+});
 
 blackClr.addEventListener("click", () =>  {
     colourPick = "black";
@@ -96,6 +102,18 @@ function draw(){
 } 
 
 
+function gridToggle(){
+    const check = document.querySelectorAll(".box-cell");
+
+    check.forEach((cell) => {
+        gridSq.addEventListener("click", () => {
+            cell.style.border = "solid black 1px";
+    });
+
+});
+    
+}
+
  
 
 //clear button and restart with grid size selection <100
@@ -113,14 +131,13 @@ function resetGrid() {
 });
  
     reset.addEventListener("click", () => {
-        gridSize = Number(window.prompt("Enter new grid size; MAX 100"));
-        if (gridSize > 100) {
-            gridSize = 100
+        gridSize = Number(window.prompt("Enter new grid size; MAX 64"));
+        if (gridSize > 64) {
+            gridSize = 64
         }
         sketchGrid.textContent = "";
         makeGrid(gridSize);
         
-
 })
    
 }
@@ -132,3 +149,4 @@ makeGrid(16);
 
 resetGrid();
 
+gridToggle();
