@@ -43,6 +43,7 @@ slider.oninput = function() {
         sketchGrid.textContent = "";
         makeGrid(newGrid);
         gridToggle();
+        resetGrid();
 
   }
 
