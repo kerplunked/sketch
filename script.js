@@ -8,6 +8,9 @@ const rainbowClr = document.querySelector(".rainbowbtn")
 const erase = document.querySelector(".erasebtn")
 const gridSq = document.querySelector(".gridbtn")
 
+const slider = document.getElementById("gridSlider");
+const output = document.getElementById("gridValue");
+output.innerHTML = slider.value;
 
 //loop to create grid
 
@@ -30,7 +33,18 @@ for (let i = 0; i < gridSize; i++) {
 }   
 } 
 
+//grid size slider
 
+slider.oninput = function() {
+
+    output.innerHTML = this.value;
+        let newGrid = this.value;
+
+        sketchGrid.textContent = "";
+        makeGrid(newGrid);
+        gridToggle();
+
+  }
 
 
 
@@ -100,19 +114,18 @@ function draw(){
    
 
 } 
-
-
+// gird toggle on and off
+//sets border css 
 function gridToggle(){
     const check = document.querySelectorAll(".box-cell");
 
-    check.forEach((cell) => {
-        gridSq.addEventListener("click", () => {
-            cell.style.border = "solid black 1px";
-    });
+    check.forEach((cell) => {        
+        cell.classList.toggle("cellborder")
 
 });
-    
 }
+    
+
 
  
 
@@ -130,23 +143,14 @@ function resetGrid() {
 
 });
  
-    reset.addEventListener("click", () => {
-        gridSize = Number(window.prompt("Enter new grid size; MAX 64"));
-        if (gridSize > 64) {
-            gridSize = 64
-        }
-        sketchGrid.textContent = "";
-        makeGrid(gridSize);
-        
-})
+ 
    
 }
 
 
 
 makeGrid(16);
-
+gridToggle();
 
 resetGrid();
 
-gridToggle();
